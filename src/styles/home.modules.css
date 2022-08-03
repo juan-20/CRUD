@@ -1,0 +1,8 @@
+.background{
+    background-image: url('../../public/imagens/index-image.jpg');
+
+    @font-face {
+        font-family: "HelveticaUltralight";
+        src: url("../assets/Fonts/HelveticaUltraLt_0.ttf");
+    }
+}

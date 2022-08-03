@@ -1,6 +1,12 @@
 import { createGlobalStyle } from 'styled-components';
 
+
 export default createGlobalStyle`
+
+
+html{
+  overflow-x: hidden;
+}
 
 *{
     margin: 0px;
