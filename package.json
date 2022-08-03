@@ -14,7 +14,7 @@
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
-  "config":{
+  "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
@@ -23,10 +23,14 @@
     "@chakra-ui/react": "^2.2.4",
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
+    "@material-ui/core": "^4.12.4",
+    "@mui/material": "^5.9.3",
     "framer-motion": "^6.5.1",
     "next": "12.1.6",
     "react": "18.1.0",
     "react-dom": "18.1.0",
+    "react-imask": "^6.4.2",
+    "react-number-format": "^4.9.3",
     "styled-components": "^5.3.5"
   },
   "devDependencies": {

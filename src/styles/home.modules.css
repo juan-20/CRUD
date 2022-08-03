@@ -1,8 +1,10 @@
 .background{
     background-image: url('../../public/imagens/index-image.jpg');
+    background-repeat: no-repeat;
+     background-size: cover; 
+     position: absolute !important;
+     height: 800px;
+     width: 100%;
+     top: 0px;
 
-    @font-face {
-        font-family: "HelveticaUltralight";
-        src: url("../assets/Fonts/HelveticaUltraLt_0.ttf");
-    }
 }
