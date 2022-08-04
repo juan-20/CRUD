@@ -1,5 +1,6 @@
 const { request, response } = require('express');
 const express = require('express');
+const { v4 } = require ('uuid');  
 
 const app = express();
 
@@ -43,10 +44,25 @@ app.get("/multipleByThereeAndFive", (request, response) => {
    return response.json({result})
 })
 
-app.post("/People", (request, response) => {
-    const body = request.body;
-    console.log(body)
+
+// Criação do usuario
 
 
-   return response.json()
+const users = [];
+
+app.post("/createUser", (request, response) => {
+    const {name, email, nascimento, telefone} = request.body;
+    const id = v4()
+    users.push({
+      id,
+      name,
+      email,
+      nascimento,
+      telefone
+    })
+    return response.status(201).send()
+})
+app.get("/getUser", (request, response) => {
+    console.log(users)
+    return response.status(201).send(users)
 })
