@@ -4,6 +4,10 @@ const { v4 } = require ('uuid');
 
 const app = express();
 
+var cors = require('cors')
+
+app.use(cors()) // Use this after the variable declaration
+
 app.use(express.json())
 
 app.listen(3333);
@@ -50,19 +54,22 @@ app.get("/multipleByThereeAndFive", (request, response) => {
 
 const users = [];
 
+let userNumber = 0
+
 app.post("/createUser", (request, response) => {
     const {name, email, nascimento, telefone} = request.body;
     const id = v4()
+    userNumber++
     users.push({
       id,
       name,
       email,
       nascimento,
-      telefone
+      telefone,
+      userNumber
     })
-    return response.status(201).send()
+    return response.status(201).send({"created": "ok"})
 })
 app.get("/getUser", (request, response) => {
-    console.log(users)
     return response.status(201).send(users)
 })

@@ -1,11 +1,14 @@
 import { Input, InputLabel, TextField } from "@material-ui/core";
-import { Container, Registration } from "./styles";
+import { Container, Footer, List, Registration } from "./styles";
 import React from "react";
 import TextMaskCustomPhone from "../masks/phone";
 import TextMaskCustomBirthday from "../masks/birthday";
 
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { Table } from "@chakra-ui/react";
+import { InferGetStaticPropsType } from "next";
+import Image from "next/image";
+import axios from "axios";
 
 interface MaskType {
   textmask: string;
@@ -16,23 +19,12 @@ declare module "@material-ui/core/Input" {
     dashed: true;
   }
 }
-
-const theme = createTheme({
-  components: {
-    MuiInput: {
-       styleOverrides: {
-        root:{
-          fontSize: '4rem',
-          width: '300px'
-        }
-       }
-    }
-  }
-});
+let countUser = -3
 
 
+export default function Home({userData}: InferGetStaticPropsType<typeof getStaticProps>) {
 
-export default function Home() {
+  console.log(userData)
 
   const [phone, setPhone] = React.useState<MaskType>({
     textmask: '',
@@ -59,7 +51,6 @@ export default function Home() {
 
   return (
     <Container >
-      <ThemeProvider theme={theme}>
       <div className="background">
       <div className="content">
         <h1>ESTÁGIO</h1>  
@@ -99,15 +90,81 @@ export default function Home() {
           <InputLabel placeholder="teste" />
           <button placeholder="Cadastrar" onClick={()=> {
           console.log([birthday.textmask, phone.textmask, name, email])
-          }} >
+          let user = [birthday.textmask, phone.textmask, name, email]
+
+          axios.post('http://localhost:3333/createUser', {
+            name: name,
+            email: email,
+            nascimento: birthday.textmask,
+            telefone: phone.textmask
+          }).then(res => {
+            console.log('send')
+          })
+          }}
+           >
             Cadastrar
           </button>
       </div>
+
+       
+
+
       </Registration>
 
+      <List>
+
+          <h1>Lista de cadastro</h1>
+      <div className="table">    
+        <table>
+        <thead>
+            <tr>
+              <th></th>
+              <th>Nome</th>
+              <th>E-mail</th>
+              <th>Nascimento</th>
+              <th className="last">Telefone</th>
+            </tr>
+        </thead>
+        <tbody>
+            {userData.map((user) => (
+            <tr key={user.id}>
+              <td>{countUser++}</td>
+              <td>{user.name}</td>
+              <td>{user.email}</td>
+              <td>{user.nascimento}</td>
+              <td className="last">{user.telefone}</td>
+            </tr>
+            ))}
+        </tbody>
+        </table>
+
+        <Image className="toTop" width={30} height={30} src='https://raw.githubusercontent.com/juan-20/Teste/d2c34ba91679532518151f84f77e1aa059aa3673/src/assets/icones/topo-pag.svg' />
+        </div>
+      </List>
+
+      <Footer className="footer">
+        <p>Fulano Beltrano de Oliveira da Silva</p>
+        <p>fulanos@gmail.com</p>
+        <p>(31) 9 9666-1111</p>
+        <p>Faculdade de Belo Horizonte</p>
+      </Footer>
+
      
-      </ThemeProvider>
     </Container>
 
   )
+}
+
+
+export const getStaticProps = async () => {
+  let host = process.env.API
+  const res = await fetch(host + '/getUser')
+  const userData = await res.json()
+
+  return{
+    props:{
+      userData,
+    }
+  }
+  
 }

@@ -1,10 +1,17 @@
 .background{
     background-image: url('../../public/imagens/index-image.jpg');
     background-repeat: no-repeat;
-     background-size: cover; 
-     position: absolute !important;
-     height: 800px;
-     width: 100%;
-     top: 0px;
+    background-size: cover; 
+    position: absolute !important;
+    height: 800px;
+    width: 100%;
+    top: 0px;
+    
+}
 
+.footer{
+    background-image: url('../../public/imagens/rodape-desktop.jpg');
+    background-size: contain; 
+    height: 400px;
+    width: 100%;
 }
