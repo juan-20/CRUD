@@ -1,6 +1,6 @@
 export type userType = {
     id?: number,
-    userNumber?: number
+    userNumber: number
     name: string,
     email: string,
     nascimento: string,

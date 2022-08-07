@@ -15,6 +15,9 @@ export const Registration = styled.section`
      >h1{
         font-size: 5rem;
         text-transform: uppercase;
+        @media (max-width: 890px){
+            font-size: 2rem;
+        }
     }
     .form-control{
         display: flex;
@@ -38,6 +41,7 @@ export const Registration = styled.section`
          font-size: 3rem;
          background: #011e48 ;
          color: #29abe2;
+         text-transform: uppercase;
         }
      }
 
@@ -54,6 +58,7 @@ export const List = styled.section`
      flex-direction: column;
      justify-content: center;
      align-items: center;
+     text-align: center;
      >h1{
          text-transform: uppercase;
          font-size: 3rem;
@@ -98,5 +103,61 @@ export const List = styled.section`
             }
         }
      }
+     @media (max-width: 890px){
+         display: none;
+        }
+    }
+    .accordion{
+        display: none;
+        @media (max-width: 890px){
+            display: flex;
+            flex-direction: column;
+        }
+        width: 400px;
+        max-width: 80%;
+        overflow: hidden;
+        .header{
+            overflow-x: auto;
+            box-sizing: content-box;
+            background: transparent;
+            display: flex;
+            gap: 0.5rem;
+            h1{
+                padding: 0.5rem 2rem 0.5rem 2rem;
+                font-size: 21px;
+                color: #808080;
+                border: 2px solid #808080;
+                :hover{
+                    border: 2px solid #29aae3;
+                    color: #29aae3;
+                    background: #f5f5f5;
+                }
+            }
+        }
+        .content{
+            width: 100%;
+            font-size: 1rem;
+            color: #000;
+            margin: 0;
+            display: flex;
+            border: 1px solid #29aae3;
+            p{
+                color: #808080;
+            }
+            .title{
+                text-transform: uppercase;
+                color: #355773;
+                font-weight: bold;
+                width: 5rem;
+            }
+            .box{
+                padding: 1rem;
+            .row{
+                display: flex;
+                gap: 1.5rem;
+                border-bottom: 1px solid #29aae3;
+            }
+        }
+        }
     }
 `;

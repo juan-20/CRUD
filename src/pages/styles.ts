@@ -16,6 +16,17 @@ export const Container = styled.main`
          >h1:first-of-type{
              font-size: 100px;
             }
+            @media (max-width: 400px){
+                padding: 0;
+                margin-top: 0rem;
+                margin-right: 0rem;
+                >h1:first-of-type{
+                    font-size: 2rem;
+                   }
+        .links{
+        display: none;
+        }
+     }
         }
         `;
 

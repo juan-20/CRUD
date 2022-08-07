@@ -8,6 +8,7 @@ import { MaskType, userType } from '../../../types/types';
 import validator from 'validator'
 import { InferGetStaticPropsType } from 'next';
 import Image from "next/image";
+import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box } from '@chakra-ui/react';
 const { isMobilePhone } = require('validator')
 
 export default function Signup({userData}: InferGetStaticPropsType<typeof getStaticProps>) {
@@ -99,7 +100,7 @@ export default function Signup({userData}: InferGetStaticPropsType<typeof getSta
 
     }
 
-    const [users, setUsers] =useState('')
+    const [id, setId] = useState(1)
   return (
     <>
     <Registration>
@@ -182,8 +183,46 @@ export default function Signup({userData}: InferGetStaticPropsType<typeof getSta
           ))}
       </tbody>
       </table>
-
       </div>
+
+      <div className="accordion">
+            
+        <div className="header w-4 scrollbar-hide">
+          {userData?.map((user) => (
+            <>
+              <>
+                <h1 onClick={() => setId(user.userNumber)}>{user.userNumber}</h1>
+              </>
+              </>
+          ))}
+          </div>
+
+
+
+          {userData?.map((user) => (
+            <div className="content">
+              <>
+              {user.userNumber === id ? (
+                <div className="box">
+              <div className="row">
+              <p className='title'>Nome </p> <p>{user.name}</p>
+              </div>
+              <div className="row">
+              <p className='title'>Email</p> <p> {user.email}</p>
+              </div>
+              <div className="row">
+              <p className='title'>Nasc.</p> <p> {user.nascimento}</p>
+              </div>
+              <div className="row">
+              <p className='title'>Tel. </p> <p> {user.telefone}</p>
+              </div>
+              </div>
+              ) : ''}
+              </>
+            </div>
+          ))}
+
+          </div>
       {/* <Image className="toTop" width={30} height={30} src='https://raw.githubusercontent.com/juan-20/Teste/d2c34ba91679532518151f84f77e1aa059aa3673/src/assets/icones/topo-pag.svg' /> */}
       </List>
 

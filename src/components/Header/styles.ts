@@ -13,11 +13,23 @@ export const Container = styled.nav`
         display: flex;
         gap: 1.5rem;
         >p{
-           color: #fff;
-        :hover{
-            border-bottom: 2px solid #808080;
-            cursor: pointer;
-        }
+            color: #fff;
+            :hover{
+                border-bottom: 2px solid #808080;
+                cursor: pointer;
+            }
         }
     }
+    @media (max-width: 890px){
+        padding: 0;
+        .links{
+        display: none;
+        }
+     }
+    @media (max-width: 300px){
+        padding: 0;
+        .links{
+        display: none;
+        }
+     }
 `;
