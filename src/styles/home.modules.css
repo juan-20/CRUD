@@ -7,11 +7,16 @@
     width: 100%;
     top: 0px;
     
-    @media (max-width: 400px){
-        width: auto;
-        .links{
-            display: none;
-        }
+}
+@media (max-width: 800px){
+    .background{
+        background-position: center center;
+        background-attachment: fixed;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .links{
+        display: none;
     }
 }
 

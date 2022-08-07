@@ -55,10 +55,11 @@ export const List = styled.section`
      top: 1600px;
      color: #355773;
      display: flex;
-     flex-direction: column;
-     justify-content: center;
+     flex-direction: row;
+     justify-content:  center;
      align-items: center;
      text-align: center;
+     .tileandtable{
      >h1{
          text-transform: uppercase;
          font-size: 3rem;
@@ -69,6 +70,7 @@ export const List = styled.section`
         display: flex;
         max-height:  700px;
         overflow: auto;
+        flex-direction: row;
      >table{
          thead{
             text-transform: uppercase;
@@ -106,6 +108,13 @@ export const List = styled.section`
      @media (max-width: 890px){
          display: none;
         }
+      
+    }
+    }
+    .toTop{
+        margin-top: 350px;
+        margin-left: 50px;
+        cursor: pointer;
     }
     .accordion{
         display: none;
@@ -160,4 +169,5 @@ export const List = styled.section`
         }
         }
     }
+ 
 `;

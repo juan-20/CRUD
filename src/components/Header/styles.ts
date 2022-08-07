@@ -19,6 +19,7 @@ export const Container = styled.nav`
                 cursor: pointer;
             }
         }
+
     }
     .hamburguer{
         display: none;

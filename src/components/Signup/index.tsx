@@ -155,6 +155,7 @@ export default function Signup({userData}: InferGetStaticPropsType<typeof getSta
       </Registration>
 
       <List id='list'>
+        <div className="tileandtable">
 
       <h1>Lista de cadastro</h1>
       <div className="table">    
@@ -185,6 +186,12 @@ export default function Signup({userData}: InferGetStaticPropsType<typeof getSta
       </tbody>
       </table>
       </div>
+      </div>
+          <div className="toTop">
+          <Link  href='#__next'>
+            <Image  width={30} height={30} src='https://raw.githubusercontent.com/juan-20/Teste/d2c34ba91679532518151f84f77e1aa059aa3673/src/assets/icones/topo-pag.svg' />
+          </Link>
+          </div>
 
       <div className="accordion">
             
@@ -224,9 +231,6 @@ export default function Signup({userData}: InferGetStaticPropsType<typeof getSta
           ))}
 
           </div>
-          <Link href='#__next'>
-            <Image className="toTop" width={30} height={30} src='https://raw.githubusercontent.com/juan-20/Teste/d2c34ba91679532518151f84f77e1aa059aa3673/src/assets/icones/topo-pag.svg' />
-          </Link>
       </List>
 
       </>
