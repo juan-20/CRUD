@@ -4,6 +4,7 @@ import { ChakraProvider } from '@chakra-ui/react'
 import Header from '../components/Header';
 
 import '../styles/home.modules.css'
+import '../assets/Fonts/fonts.module.css'
 import { Input } from '@material-ui/core';
 
 

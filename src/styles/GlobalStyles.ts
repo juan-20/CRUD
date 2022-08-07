@@ -10,6 +10,7 @@ export default createGlobalStyle`
     text-overflow: ellipsis;
 }
 
+
 html{
   overflow-x: hidden;
 }
@@ -38,3 +39,4 @@ html{
 }
 
 `;
+

@@ -1,13 +1,6 @@
 import { Container } from "./styles";
 import React from "react";
-import TextMaskCustomPhone from "../masks/phone";
-import TextMaskCustomBirthday from "../masks/birthday";
-
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { Table } from "@chakra-ui/react";
 import { InferGetStaticPropsType } from "next";
-import Image from "next/image";
-import axios from "axios";
 import { userType } from "../../types/types";
 import Hero from "../components/Hero";
 import Signup from "../components/Signup";

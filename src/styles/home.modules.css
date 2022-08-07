@@ -28,3 +28,9 @@
     width: 90%;
     bottom: 0;
     }
+
+    @font-face {
+        font-family: HelveticaUltraLight;
+        src: url(../assets/Fonts/HelveticaUltraLt_0.ttf);
+      }
+      

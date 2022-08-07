@@ -20,6 +20,22 @@ export const Container = styled.nav`
             }
         }
 
+        .hex {
+            height: 10px;
+            width: 10px;
+            align-self: center;
+            background: #fffeff;
+            transform: rotate(90deg);
+            -webkit-clip-path: polygon(
+                50% 0%,
+                95% 25%,
+                95% 75%,
+                50% 100%,
+                5% 75%,
+                5% 25%
+            );
+            clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+            }
     }
     .hamburguer{
         display: none;

@@ -1,0 +1,7 @@
+@font-face {
+    font-family: 'Helvetica UltraLight';
+    src: url('HelveticaUltraLt_0.ttf');
+    src: url('HelveticaUltraLt_0.ttf?#iefix') format('embedded-opentype'), url('HelveticaUltraLt_0.ttf') format('ttf'), url('HelveticaUltraLt_0.ttf') format('ttf');
+    font-weight: 900;
+    font-style: normal;
+}

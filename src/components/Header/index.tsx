@@ -27,9 +27,11 @@ export default function Header(props: any) {
         <Link href='#list'>
         <p>lista</p>
         </Link>
+        <div className="hex"></div>
         <Link href='#registration'>
         <p>cadastro</p>
         </Link>
+        <div className="hex"></div>
         <Link href='#aboutme'>
         <p>sobre mim</p>
         </Link>

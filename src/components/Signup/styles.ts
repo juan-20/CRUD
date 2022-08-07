@@ -12,6 +12,7 @@ export const Registration = styled.section`
      justify-content: center;
      align-items: center;
      gap: 5rem;
+     font-family: 'HelveticaUltraLight', 'Courier New', Courier, monospace !important;
      >h1{
         font-size: 5rem;
         text-transform: uppercase;

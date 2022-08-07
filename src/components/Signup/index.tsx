@@ -40,39 +40,39 @@ export default function Signup({userData}: InferGetStaticPropsType<typeof getSta
     // validadores
     const [emailError, setEmailError] = useState(false)
     const [nameError, setNameError] = useState(false)
+    const [phoneError, setPhoneError] = useState(false)
 
     // post:
     async function handleCreateNewUser(event: FormEvent){
       event.preventDefault();
       console.log([birthday.textmask, phone.textmask, name, email])
 
-      // if (name) {
-      //   console.log(name)
-      //   setNameError(false)
-      //  console.log('maneiro')
-      // } else {
-      //   setNameError(true)
-      //   return
-      // }
-      // if (validator.isEmail(email)) {
-      //   setEmailError(false)
-      //  console.log('maneiro')
-      // } else {
-      //   setEmailError(true)
-      //   return
-      // }
-      phone.textmask = '3195287182'
-      if (isMobilePhone('+55 '+ phone.textmask, 'pt-BR')) {
-        // setEmailError(false)
-       console.log('maneiro')
-       console.log('+55 '+ phone.textmask);
+      if (name) {
+        console.log(name)
+        setNameError(false)
       } else {
-        // setEmailError(true)
-        console.log('huh')
-        console.log('+55 '+ phone.textmask);
+        setNameError(true)
+        return
+      }
+      if (validator.isEmail(email)) {
+        setEmailError(false)
+      } else {
+        setEmailError(true)
+        return
+      }
+
+      let regexPhone = phone.textmask.replace(/( )+/g, '')
+      regexPhone = regexPhone.replace(/(-)+/g, '')
+      regexPhone = regexPhone.replace(/[^\w\s]/gi, '')
+      if (isMobilePhone(regexPhone, 'pt-BR')) {
+        setPhoneError(false)
+        return
+      } else {
+        setPhoneError(true)
         console.log(validator.isMobilePhone)
         return
       }
+
 
       axios.post('http://localhost:3333/createUser', {
         name: name,
@@ -145,7 +145,7 @@ export default function Signup({userData}: InferGetStaticPropsType<typeof getSta
             placeholder="(31) 9 9999-9999"
             id="formatted-text-mask-input"
             inputComponent={TextMaskCustomPhone as any}
-            error={phone.textmask !== "" && !phone.textmask.match(TextMaskCustomPhone as any)}
+            error={phoneError === true}
           />
           <InputLabel placeholder="teste" />
           <button placeholder="Cadastrar"  type="submit">
