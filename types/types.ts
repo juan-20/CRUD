@@ -1,10 +1,10 @@
 export type userType = {
-    id: number,
+    id?: number,
+    userNumber?: number
     name: string,
     email: string,
     nascimento: string,
     telefone: string,
-    userNumber: number
 }
 
 export interface MaskType {

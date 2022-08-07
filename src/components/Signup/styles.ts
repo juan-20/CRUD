@@ -42,3 +42,61 @@ export const Registration = styled.section`
      }
 
 `;
+
+export const List = styled.section`
+      background-color: #fff;
+     height: 800px;
+     width: 100%;
+     position: absolute;
+     top: 1600px;
+     color: #355773;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     >h1{
+         text-transform: uppercase;
+         font-size: 3rem;
+         color: #29aae3;
+         padding: 2rem;
+     }
+     .table{
+        display: flex;
+        max-height:  700px;
+        overflow: auto;
+     >table{
+         thead{
+            text-transform: uppercase;
+            tr{
+                th{
+                    padding: 2rem;
+                    border-right: 2px solid #29abe2;
+                    border-bottom: 2px solid #29abe2;
+                }
+                .last{
+                    border-right: 0px solid #29abe2;
+                }
+            }
+        }
+        tbody{
+            text-align: center;
+            padding: 2rem;
+            tr{
+                td{
+                    padding: 2rem;
+                    border-right: 2px solid #29abe2;
+                    border-bottom: 2px solid #29abe2;
+                }
+                .last{
+                    border-right: 0px solid #29abe2;
+                }
+            }
+            >tr:last-child{
+                td{
+                    border-bottom: 0px solid #29abe2;
+                }
+            }
+        }
+     }
+    }
+`;

@@ -1,14 +1,16 @@
 import React, { FormEvent, useState } from 'react'
-import { Registration } from './styles'
+import { List, Registration } from './styles'
 import { Input, InputLabel, TextField } from "@material-ui/core";
 import TextMaskCustomPhone from '../../masks/phone';
 import TextMaskCustomBirthday from '../../masks/birthday';
 import axios from 'axios';
-import { MaskType } from '../../../types/types';
+import { MaskType, userType } from '../../../types/types';
 import validator from 'validator'
+import { InferGetStaticPropsType } from 'next';
+import Image from "next/image";
 const { isMobilePhone } = require('validator')
 
-export default function Signup() {
+export default function Signup({userData}: InferGetStaticPropsType<typeof getStaticProps>) {
     // variaveis
     const [phone, setPhone] = React.useState<MaskType>({
       textmask: '',
@@ -86,9 +88,20 @@ export default function Signup() {
       setPhone({
         textmask: '',
       });
+      userData.push({ 
+        name: name,
+        email: email,
+        nascimento: birthday.textmask,
+        telefone: phone.textmask,
+        userNumber: userData.length++
+      })
+      console.log(userData)
 
     }
+
+    const [users, setUsers] =useState('')
   return (
+    <>
     <Registration>
         <h1>Cadastro</h1>
 
@@ -137,10 +150,56 @@ export default function Signup() {
             Cadastrar
           </button>
       </form>
-
-       
-
-
       </Registration>
+
+      <List>
+
+      <h1>Lista de cadastro</h1>
+      <div className="table">    
+      <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Nome</th>
+          <th>E-mail</th>
+          <th>Nascimento</th>
+          <th className="last">Telefone</th>
+        </tr>
+      </thead>
+
+        <tbody>
+        </tbody>
+      
+          <tbody>
+          {userData?.map((user) => (
+          <tr key={user.id}>
+            <td>{user.userNumber}</td>
+            <td>{user.name}</td>
+            <td>{user.email}</td>
+            <td>{user.nascimento}</td>
+            <td className="last">{user.telefone}</td>
+          </tr>
+          ))}
+      </tbody>
+      </table>
+
+      </div>
+      {/* <Image className="toTop" width={30} height={30} src='https://raw.githubusercontent.com/juan-20/Teste/d2c34ba91679532518151f84f77e1aa059aa3673/src/assets/icones/topo-pag.svg' /> */}
+      </List>
+
+      </>
   )
+}
+
+export const getStaticProps = async () => {
+  let host = process.env.API
+  const res = await fetch(host + '/getUser')
+  const userData: userType[] = await res.json()
+
+  return{
+    props:{
+      userData,
+    }
+  }
+  
 }
