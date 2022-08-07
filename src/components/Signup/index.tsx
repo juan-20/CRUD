@@ -9,6 +9,7 @@ import validator from 'validator'
 import { InferGetStaticPropsType } from 'next';
 import Image from "next/image";
 import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box } from '@chakra-ui/react';
+import Link from 'next/link';
 const { isMobilePhone } = require('validator')
 
 export default function Signup({userData}: InferGetStaticPropsType<typeof getStaticProps>) {
@@ -103,7 +104,7 @@ export default function Signup({userData}: InferGetStaticPropsType<typeof getSta
     const [id, setId] = useState(1)
   return (
     <>
-    <Registration>
+    <Registration id='registration'>
         <h1>Cadastro</h1>
 
         <form onSubmit={handleCreateNewUser}  className="form-control">
@@ -153,7 +154,7 @@ export default function Signup({userData}: InferGetStaticPropsType<typeof getSta
       </form>
       </Registration>
 
-      <List>
+      <List id='list'>
 
       <h1>Lista de cadastro</h1>
       <div className="table">    
@@ -223,7 +224,9 @@ export default function Signup({userData}: InferGetStaticPropsType<typeof getSta
           ))}
 
           </div>
-      {/* <Image className="toTop" width={30} height={30} src='https://raw.githubusercontent.com/juan-20/Teste/d2c34ba91679532518151f84f77e1aa059aa3673/src/assets/icones/topo-pag.svg' /> */}
+          <Link href='#__next'>
+            <Image className="toTop" width={30} height={30} src='https://raw.githubusercontent.com/juan-20/Teste/d2c34ba91679532518151f84f77e1aa059aa3673/src/assets/icones/topo-pag.svg' />
+          </Link>
       </List>
 
       </>

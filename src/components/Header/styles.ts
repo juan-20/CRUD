@@ -20,8 +20,22 @@ export const Container = styled.nav`
             }
         }
     }
+    .hamburguer{
+        display: none;
+        :hover{
+            fill: #29abe2;
+            color: #29abe2;
+        }
+        @media (max-width: 890px){
+            display: flex;
+         }
+    }
     @media (max-width: 890px){
         padding: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 3rem;
         .links{
         display: none;
         }

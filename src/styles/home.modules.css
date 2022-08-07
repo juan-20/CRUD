@@ -10,14 +10,16 @@
     @media (max-width: 400px){
         width: auto;
         .links{
-        display: none;
+            display: none;
         }
-     }
+    }
 }
 
 .footer{
     background-image: url('../../public/imagens/rodape-desktop.jpg');
-    background-size: contain; 
+    background-size: cover; 
     height: 400px;
-    width: 100%;
-}
+    background-repeat: no-repeat;
+    width: 90%;
+    bottom: 0;
+    }

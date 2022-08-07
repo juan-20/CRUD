@@ -7,6 +7,7 @@ export default createGlobalStyle`
     margin: 0px;
     margin: 0px;
     box-sizing: border-box;
+    text-overflow: ellipsis;
 }
 
 *, button, input {

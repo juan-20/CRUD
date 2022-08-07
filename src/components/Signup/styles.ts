@@ -123,7 +123,7 @@ export const List = styled.section`
             display: flex;
             gap: 0.5rem;
             h1{
-                padding: 0.5rem 2rem 0.5rem 2rem;
+                padding: 0.1rem 2rem 0.1rem 2rem;
                 font-size: 21px;
                 color: #808080;
                 border: 2px solid #808080;

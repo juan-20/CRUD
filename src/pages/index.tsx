@@ -1,4 +1,4 @@
-import { Container, List } from "./styles";
+import { Container } from "./styles";
 import React from "react";
 import TextMaskCustomPhone from "../masks/phone";
 import TextMaskCustomBirthday from "../masks/birthday";
@@ -30,10 +30,10 @@ export default function Home({userData}: InferGetStaticPropsType<typeof getStati
     <Container >
      
      <Hero />
-
+    
      <Signup userData={userData} />
 
-    <Footer/>
+      <Footer/>
 
      
     </Container>
